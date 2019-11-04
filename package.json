@@ -1,9 +1,12 @@
 {
   "name": "alsatian-enzyme",
   "version": "1.0.0",
-  "description": "",
+  "description": "Helpers for testing React in TypeScript with Enzyme and Alsatian",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "tsc -p ./tsconfig.json --outDir dist",
     "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
@@ -14,7 +17,13 @@
     "type": "git",
     "url": "git+https://github.com/NewOrbit/alsatian-enzyme.git"
   },
-  "keywords": [],
+  "keywords": [
+    "testing",
+    "typescript",
+    "alsatian",
+    "enzyme",
+    "react"
+  ],
   "author": "NewOrbit Ltd",
   "license": "MIT",
   "peerDependencies": {
