@@ -1,1 +1,1 @@
-// export stuff here
+export { ExpectElement } from "./element-matcher";

@@ -2,7 +2,8 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./test",
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "target": "es6"
     },
     "include": [
         "./src/**/*.test.ts",

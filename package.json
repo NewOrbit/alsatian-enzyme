@@ -1,26 +1,37 @@
 {
-  "name": "@neworbit/package-template",
+  "name": "alsatian-enzyme",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json --outDir dist",
-    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\"",
-    "test:ci": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\" --tap | tap-xunit > ./test-results.xml",
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
+    "test:ci": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --tap | tap-xunit > ./test-results.xml",
     "lint": "tslint -c tslint.json \"./src/**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NewOrbit/package-template.git"
+    "url": "git+https://github.com/NewOrbit/alsatian-enzyme.git"
   },
   "keywords": [],
   "author": "NewOrbit Ltd",
-  "license": "ISC",
+  "license": "MIT",
+  "peerDependencies": {
+    "alsatian": "3.x",
+    "enzyme": "3.x"
+  },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/react": "^16.9.11",
     "alsatian": "^3.1.0",
     "cross-env": "^6.0.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "neworbit-tslint-config": "^6.0.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "tslint": "^5.20.0",
     "typescript": "^3.6.4"
   }
