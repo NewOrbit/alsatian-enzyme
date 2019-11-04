@@ -1,0 +1,27 @@
+{
+  "name": "@neworbit/package-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json --outDir dist",
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\"",
+    "test:ci": "cross-env TS_NODE_PROJECT=tsconfig.test.json alsatian \"./src/**/*.test.ts\" --tap | tap-xunit > ./test-results.xml",
+    "lint": "tslint -c tslint.json \"./src/**/*.{ts,tsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewOrbit/package-template.git"
+  },
+  "keywords": [],
+  "author": "NewOrbit Ltd",
+  "license": "ISC",
+  "devDependencies": {
+    "alsatian": "^3.1.0",
+    "cross-env": "^6.0.3",
+    "neworbit-tslint-config": "^6.0.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  }
+}

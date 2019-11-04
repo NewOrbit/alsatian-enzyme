@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "jsx": "react",
+        "lib": ["es2015"],
+        "target": "es5",
+        "outDir": "dist",
+        "declaration": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "keyofStringsOnly": true,
+        "strict": true
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ],
+    "exclude": [
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx",
+        "node_modules",
+        "dist"
+    ]
+}
