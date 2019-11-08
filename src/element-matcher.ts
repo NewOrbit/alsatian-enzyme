@@ -9,8 +9,17 @@ export class ElementMatcher<T extends CommonWrapper> extends Matcher<T> {
 
         if (!this.actualValue.matchesElement(node)) {
 
-            const expected = shallow(node).debug();
-            const actual = this.actualValue.debug();
+            let expected;
+            let actual;
+            try {
+                expected = shallow(node).debug();
+                actual = this.actualValue.debug();
+            } catch {
+                // If the calls to shallow or debug fail then we still want the MatchError to be thrown
+                // so perform the diff over the react elements directly instead as a compromise
+                expected = node;
+                actual = this.actualValue.getElement();
+            }
 
             throw new MatchError(
                 "Expected elements to match",

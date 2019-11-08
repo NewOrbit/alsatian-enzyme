@@ -10,8 +10,13 @@ import { ElementMatcher, ExpectElement } from "./element-matcher";
 const MyComponent: React.FC = () => (
     <div>
         My components body.
+        <MyChildComponent />
     </div>
 );
+
+const MyChildComponent: React.FC = () => {
+    throw new Error("Simulating a child component that cannot be rendered within the test suite");
+};
 
 @TestFixture("ElementMatcher")
 export class ElementMatcherTests {
@@ -41,6 +46,15 @@ export class ElementMatcherTests {
 
         const elementMatcher = new ElementMatcher<ShallowWrapper>(wrapper);
 
-        Expect(() => elementMatcher.toMatchElement(<div>My components body.</div>)).not.toThrow();
+        Expect(() => elementMatcher.toMatchElement(<div>My components body.<MyChildComponent /></div>)).not.toThrow();
+    }
+
+    @Test("should throw match error if components cannot be rendered by the call to shallow")
+    public shouldThrowWithUnrenderableComponent() {
+
+        const wrapper = shallow(<MyComponent />);
+
+        Expect(() => ExpectElement(wrapper.find(MyChildComponent))
+            .toMatchElement(<MyChildComponent>something</MyChildComponent>)).toThrowError(MatchError, "Expected elements to match");
     }
 }
