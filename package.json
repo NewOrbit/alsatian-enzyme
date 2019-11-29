@@ -1,6 +1,6 @@
 {
   "name": "alsatian-enzyme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helpers for testing React in TypeScript with Enzyme and Alsatian",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
